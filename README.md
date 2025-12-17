@@ -33,6 +33,6 @@ instradare tramite il click al link
 -Scrivi il form , aggiungi logica per aggiornare array partecipanti viaggio
 
 OBBIETTIVI ENTRO STASERA : 
-SCRIVIAMO PRIMA ROTTA PER HOMEPAGE
+[x]SCRIVIAMO PRIMA ROTTA PER HOMEPAGE
 [x]SCRIVIAMO IL DEFAULT LAYOUT(DENTRO HA L'HEDER)
-GENERIAMO GLI ARRAY COI DATI
+[x]GENERIAMO GLI ARRAY COI DATI
