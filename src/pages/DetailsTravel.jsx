@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { useGlobalProvider } from "../context/GlobalContext"
 
 
@@ -10,7 +10,7 @@ export default function DetailTravel() {
 
     const traveler = travelers.filter(el => el.viaggio_id == id)
 
-    console.log(traveler)
+    // console.log(traveler)
 
 
 
@@ -41,7 +41,18 @@ export default function DetailTravel() {
                                 data-bs-parent="#accordionExample"
                             >
                                 <div className="accordion-body">
-                                    This is the first item's accordion body.
+                                    <div className="row row-cols-5">
+                                        <div className="col fw-bold">nome </div>
+                                        <div className="col fw-bold">cognome</div>
+                                        <div className="col fw-bold"> numero</div>
+                                        <div className="col fw-bold">e-mail</div>
+                                        <div className="col fw-bold">codice fiscale</div>
+                                        <div className="col">{el.nome} </div>
+                                        <div className="col">{el.cognome}</div>
+                                        <div className="col"> {el.telefono}</div>
+                                        <div className="col">{el.email}</div>
+                                        <div className="col">{el.codiceFiscale}</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
