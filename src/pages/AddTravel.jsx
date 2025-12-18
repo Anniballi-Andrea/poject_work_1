@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useGlobalProvider } from "../context/GlobalContext"
 
 export default function AddTravel() {
@@ -34,7 +34,7 @@ export default function AddTravel() {
 
     }
 
-    // useEffect(() => console.log(travel), [travel])
+
 
     //è una pagina placeholder
     return (

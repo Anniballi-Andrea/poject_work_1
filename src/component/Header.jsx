@@ -14,7 +14,7 @@ export default function Header() {
                             <NavLink to={'/'} className="nav-link active" aria-current="page">viaggi</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to={'/add'} className="nav-link" >Aggiungi Viaggio</NavLink>
+                            <NavLink to={'/addTravel'} className="nav-link" >Aggiungi Viaggio</NavLink>
                         </li>
                     </ul>
                 </div>
