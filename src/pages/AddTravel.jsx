@@ -3,32 +3,34 @@ import { useGlobalProvider } from "../context/GlobalContext"
 
 export default function AddTravel() {
 
-    const { setTravel } = useGlobalProvider()
+    const { travel, setTravel } = useGlobalProvider()
     const [destinazione, setDestinazione] = useState('')
     const [dataPartenza, setDataPartenza] = useState('')
     const [dataRitorno, setDataRitorno] = useState('')
 
     const [addDestination, setAddDestination] = useState({
-        destinazione: " ",
-        dataPartenza: " ",
-        dataRitorno: " "
+
+        destinazione: "",
+        dataPartenza: "",
+        dataRitorno: ""
     });
 
     function handleChange(e) {
-        const { name, value } = e.target
+        const { name, value } = e.target;
         setAddDestination(prev => ({
             ...prev,
             [name]: value
-        }))
+        }));
     }
 
 
     function handleSubmit(e) {
-        e.preventDefault()
-
-
-        console.log(addDestination)
+        e.preventDefault();
+        console.log(addDestination);
+        setTravel([...travel, addDestination])
+        console.log(travel)
     }
+
 
     //è una pagina placeholder
     return (
@@ -41,11 +43,11 @@ export default function AddTravel() {
                         <div className="row">
 
                             <div className="mb-3 col-3">
-                                <label htmlFor="destination" className="form-label">Destination</label>
+                                <label htmlFor="destinazione" className="form-label">Destination</label>
                                 <input
                                     type="text"
                                     name="destinazione"
-                                    id="destination"
+                                    id="destinazione"
                                     className="form-control"
                                     value={addDestination.destinazione}
                                     onChange={handleChange}
@@ -56,11 +58,11 @@ export default function AddTravel() {
                             </div>
 
                             <div className="mb-3 col-3">
-                                <label htmlFor="departure" className="form-label">Departure</label>
+                                <label htmlFor="dataPartenza" className="form-label">Departure</label>
                                 <input
                                     type="date"
                                     name="dataPartenza"
-                                    id="departure"
+                                    id="dataPartenza"
                                     className="form-control"
                                     value={addDestination.dataPartenza}
                                     onChange={handleChange}
@@ -70,11 +72,11 @@ export default function AddTravel() {
                             </div>
 
                             <div className="mb-3 col-3">
-                                <label htmlFor="return" className="form-label">Return</label>
+                                <label htmlFor="dataRitorno" className="form-label">Return</label>
                                 <input
                                     type="date"
                                     name="dataRitorno"
-                                    id="return"
+                                    id="dataRitorno"
                                     className="form-control"
                                     value={addDestination.dataRitorno}
                                     onChange={handleChange}
