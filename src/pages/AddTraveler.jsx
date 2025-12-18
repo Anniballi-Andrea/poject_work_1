@@ -55,77 +55,83 @@ export default function AddTraveler() {
     useEffect(() => console.log(travelers), [travelers])
 
     return (
+        <>
+            <div className="container my-4 pb-3 bg-light">
+                <h4 className=" pt-3 pb-4">Aggiungi i dati del viaggiatore:</h4>
 
-        <div className="container my-4">
-            <h2>Aggiungi un viaggiatore</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                        <label className="form-label fw-bold">Nome:</label>
+                        <input
+                            type="text"
+                            name="nome"
+                            value={addTraveler.nome}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Inserisci nome..."
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label fw-bold">Cognome:</label>
+                        <input
+                            type="text"
+                            name="cognome"
+                            value={addTraveler.cognome}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Inserisci cognome..."
+                        />
+                    </div>
 
-            <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                    <label className="form-label">Nome</label>
-                    <input
-                        type="text"
-                        name="nome"
-                        value={addTraveler.nome}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Nome"
-                    />
-                </div>
-                <div className="mb-3">
-                    <label className="form-label">Cognome</label>
-                    <input
-                        type="text"
-                        name="cognome"
-                        value={addTraveler.cognome}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Cognome"
-                    />
-                </div>
+                    <div className="mb-3">
+                        <label className="form-label fw-bold">Codice Fiscale:</label>
+                        <input
+                            type="text"
+                            name="codiceFiscale"
+                            value={addTraveler.codiceFiscale}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Inserisci Codice Fiscale..."
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <label className="form-label">Codice Fiscale</label>
-                    <input
-                        type="text"
-                        name="codiceFiscale"
-                        value={addTraveler.codiceFiscale}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Codice Fiscale"
-                    />
-                </div>
+                    <div className="mb-3">
+                        <label className="form-label fw-bold">Telefono:</label>
+                        <input
+                            type="tel"
+                            name="telefono"
+                            value={addTraveler.telefono}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Inserisci numero di telefono..."
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <label className="form-label">Telefono</label>
-                    <input
-                        type="tel"
-                        name="telefono"
-                        value={addTraveler.telefono}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Telefono"
-                    />
-                </div>
+                    <div className="mb-3">
+                        <label className="form-label fw-bold">Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={addTraveler.email}
+                            onChange={handleChange}
+                            className="form-control"
+                            placeholder="Inserisci email..."
+                        />
+                    </div>
 
-                <div className="mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={addTraveler.email}
-                        onChange={handleChange}
-                        className="form-control"
-                        placeholder="Email"
-                    />
-                </div>
 
-                <button type="submit" className="btn btn-primary">
-                    Aggiungi Viaggiatore
-                </button>
-            </form>
+                    <button type="submit" className="btn btn-primary">
+                        Aggiungi Viaggiatore
+                    </button>
 
-            <Link to={`/detail/${id}`} className="btn btn-primary mt-3"><i class="bi bi-arrow-left-square"></i></Link>
 
-        </div>
+                </form>
+
+            </div>
+            <div className="d-flex justify-content-center align-items-center">
+                <Link to={`/detail/${id}`} className="btn btn-warning mt-3"><i class="bi bi-arrow-left-square"></i></Link>
+
+            </div>
+        </>
     );
 }

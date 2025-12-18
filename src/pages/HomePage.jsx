@@ -12,31 +12,35 @@ export default function HomePage() {
     //console.log(travel)
     return (
         <>
-            <h1>Aggiungere la lista dei viaggi qui!!</h1>
-
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Destinazione</th>
-                        <th scope="col">Data Partenza</th>
-                        <th scope="col">Data Ritorno</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {travel.map(el => (
-                        <tr key={el.id}>
-                            <td>{el.destinazione}</td>
-                            <td>{el.dataPartenza}</td>
-                            <td>{el.dataRitorno}</td>
-                            <td><Link to={`/detail/${el.id}`} className="btn btn-primary">view details</Link></td>
+            <div className="container mt-5 bg-light p-3">
+                <h3 className="pb-4">Lista dei prossimi viaggi:</h3>
+                <table className="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th className=" text-start" scope="col">Destinazione</th>
+                            <th scope="col">Data Partenza</th>
+                            <th scope="col">Data Ritorno</th>
+                            <th scope="col">Action</th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        {travel.map(el => (
+                            <tr key={el.id}>
+                                <td className=" text-start">{el.destinazione}</td>
+                                <td>{el.dataPartenza}</td>
+                                <td>{el.dataRitorno}</td>
+                                <td >
+                                    <Link to={`/detail/${el.id}`} className="btn btn-primary btn-sm"><i class="bi bi-people-fill"></i></Link>
+                                    <button className="btn btn-danger btn-sm ms-3" ><i class="bi bi-trash-fill"></i></button>
+                                </td>
+                            </tr>
 
-                    ))}
+                        ))}
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
+            </div>
         </>
     )
 }

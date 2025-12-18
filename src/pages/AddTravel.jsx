@@ -39,15 +39,16 @@ export default function AddTravel() {
     //è una pagina placeholder
     return (
         <>
-            <h1>Aggiungere il form per i viaggi qui!!</h1>
 
-            <section>
+
+            <section className="mt-5">
                 <form onSubmit={handleSubmit}>
-                    <div className="container">
+                    <div className="container p-4 bg-light border_radius">
+                        <h4 className="pb-4">Inserisci i dati del viaggio:</h4>
                         <div className="row">
 
-                            <div className="mb-3 col-3">
-                                <label htmlFor="destinazione" className="form-label">Destination</label>
+                            <div className="mb-3 col-4">
+                                <label htmlFor="destinazione" className="form-label fw-bold">Destinazione</label>
                                 <input
                                     type="text"
                                     name="destinazione"
@@ -56,13 +57,13 @@ export default function AddTravel() {
                                     value={addDestination.destinazione}
                                     onChange={handleChange}
 
-                                    placeholder="Type a new destination..."
+                                    placeholder="Inserisci la destinazione..."
                                 />
-                                <small className="text-muted">Just the country name</small>
+
                             </div>
 
-                            <div className="mb-3 col-3">
-                                <label htmlFor="dataPartenza" className="form-label">Departure</label>
+                            <div className="mb-3 col-4">
+                                <label htmlFor="dataPartenza" className="form-label fw-bold">Data partenza</label>
                                 <input
                                     type="date"
                                     name="dataPartenza"
@@ -72,11 +73,11 @@ export default function AddTravel() {
                                     onChange={handleChange}
 
                                 />
-                                <small className="text-muted">Choose a date</small>
+
                             </div>
 
-                            <div className="mb-3 col-3">
-                                <label htmlFor="dataRitorno" className="form-label">Return</label>
+                            <div className="mb-3 col-4">
+                                <label htmlFor="dataRitorno" className="form-label fw-bold">Data ritorno</label>
                                 <input
                                     type="date"
                                     name="dataRitorno"
@@ -86,14 +87,12 @@ export default function AddTravel() {
                                     onChange={handleChange}
 
                                 />
-                                <small className="text-muted">Choose a date</small>
-                            </div>
 
-                            <div className="col-3 d-flex align-items-center">
-                                <button className="btn btn-primary" type="submit">
-                                    Submit form
-                                </button>
                             </div>
+                            <div >
+                                <button className="btn btn-primary" type="submit">
+                                    Conferma
+                                </button></div>
 
                         </div>
                     </div>

@@ -1,2 +1,20 @@
 @import url('bootstrap');
 @import url('bootstrap-icons');
+
+
+
+
+
+.container {
+    border: 1px solid lightgray;
+}
+
+.border_radius {
+    border-radius: 10px;
+}
+
+.search {
+
+    border-radius: 6px;
+    border: 1px solid lightgray;
+}
