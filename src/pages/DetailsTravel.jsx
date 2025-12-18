@@ -23,12 +23,14 @@ export default function DetailTravel() {
             .includes(search.toLowerCase())
     );
 
+    const currentDestination = travel.find(el => (el.id == id))
 
 
+    console.log(currentDestination)
 
     return (
         <>
-            <h3>travel.destinazione</h3>
+            <h3>{currentDestination.destinazione}</h3>
             <div className="d-flex justify-content-between">
                 <input type="search"
                     placeholder="Search"
