@@ -1,25 +1,36 @@
 import { Link, useParams } from "react-router-dom"
 import { useGlobalProvider } from "../context/GlobalContext"
+import { useState } from "react"
 
 
 
 export default function DetailTravel() {
 
+    const [search, setSearch] = useState("")
     const { id } = useParams()
-    const { travelers } = useGlobalProvider()
+    const { travelers, setTravelers } = useGlobalProvider()
 
     const traveler = travelers.filter(el => el.viaggio_id == id)
 
     // console.log(traveler)
 
+    console.log(search)
+
+
+    const filteredTraveler = traveler.filter(el =>
+        (el.cognome + " " + el.nome)
+            .toLowerCase()
+            .includes(search.toLowerCase())
+    );
 
 
 
 
     return (
         <>
+            <input type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
             {
-                traveler.map(el => (
+                filteredTraveler.map(el => (
                     <div key={el.id} className="accordion mt-4" id="accordionExample">
                         <div className="accordion-item">
                             <h2 className="accordion-header" id="headingOne">
