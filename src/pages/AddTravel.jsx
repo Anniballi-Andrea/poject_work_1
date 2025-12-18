@@ -8,25 +8,25 @@ export default function AddTravel() {
     const [dataPartenza, setDataPartenza] = useState('')
     const [dataRitorno, setDataRitorno] = useState('')
 
-    const [addDestination, setAddDestination] = useState(
-        {
-            destinazione: destinazione,
-            dataPartenza: dataPartenza,
-            dataRitorno: dataRitorno
-        }
-    )
+    const [addDestination, setAddDestination] = useState({
+        destinazione: " ",
+        dataPartenza: " ",
+        dataRitorno: " "
+    });
 
-    /* function handleChange(e) {
-         const { name, value } = e.target
-         setAddDestination(prev => ({
-             ...prev,
-             [name]: value
-         }))
-     }*/
+    function handleChange(e) {
+        const { name, value } = e.target
+        setAddDestination(prev => ({
+            ...prev,
+            [name]: value
+        }))
+    }
 
 
     function handleSubmit(e) {
         e.preventDefault()
+
+
         console.log(addDestination)
     }
 
@@ -44,11 +44,11 @@ export default function AddTravel() {
                                 <label htmlFor="destination" className="form-label">Destination</label>
                                 <input
                                     type="text"
-                                    name="destination"
+                                    name="destinazione"
                                     id="destination"
                                     className="form-control"
-                                    value={destinazione}
-                                    onChange={(e) => setDestinazione(e.target.value)}
+                                    value={addDestination.destinazione}
+                                    onChange={handleChange}
 
                                     placeholder="Type a new destination..."
                                 />
@@ -59,11 +59,11 @@ export default function AddTravel() {
                                 <label htmlFor="departure" className="form-label">Departure</label>
                                 <input
                                     type="date"
-                                    name="departure"
+                                    name="dataPartenza"
                                     id="departure"
                                     className="form-control"
-                                    value={dataPartenza}
-                                    onChange={(e) => setDataPartenza(e.target.value)}
+                                    value={addDestination.dataPartenza}
+                                    onChange={handleChange}
 
                                 />
                                 <small className="text-muted">Choose a date</small>
@@ -73,11 +73,11 @@ export default function AddTravel() {
                                 <label htmlFor="return" className="form-label">Return</label>
                                 <input
                                     type="date"
-                                    name="return"
+                                    name="dataRitorno"
                                     id="return"
                                     className="form-control"
-                                    value={dataRitorno}
-                                    onChange={(e) => setDataRitorno(e.target.value)}
+                                    value={addDestination.dataRitorno}
+                                    onChange={handleChange}
 
                                 />
                                 <small className="text-muted">Choose a date</small>
