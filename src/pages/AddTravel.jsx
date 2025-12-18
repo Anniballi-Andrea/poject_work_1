@@ -1,15 +1,13 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useGlobalProvider } from "../context/GlobalContext"
 
 export default function AddTravel() {
 
     const { travel, setTravel } = useGlobalProvider()
-    const [destinazione, setDestinazione] = useState('')
-    const [dataPartenza, setDataPartenza] = useState('')
-    const [dataRitorno, setDataRitorno] = useState('')
+
 
     const [addDestination, setAddDestination] = useState({
-
+        id: travel.length + 1,
         destinazione: "",
         dataPartenza: "",
         dataRitorno: ""
@@ -17,20 +15,26 @@ export default function AddTravel() {
 
     function handleChange(e) {
         const { name, value } = e.target;
+
+
         setAddDestination(prev => ({
             ...prev,
-            [name]: value
+            [name]:
+                name === "destinazione"
+                    ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+                    : value
         }));
     }
 
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(addDestination);
+        // console.log(addDestination);
         setTravel([...travel, addDestination])
-        console.log(travel)
+
     }
 
+    // useEffect(() => console.log(travel), [travel])
 
     //è una pagina placeholder
     return (
