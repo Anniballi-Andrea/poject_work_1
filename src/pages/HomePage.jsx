@@ -1,20 +1,8 @@
-import { useState } from "react"
 
-
-import { Link } from "react-router-dom"
-import { useGlobalProvider } from "../context/GlobalContext"
 import TravelsTable from "../component/TravelsTable"
 
 export default function HomePage() {
-    const { travel, setTravel } = useGlobalProvider()
 
-
-    function removeTravel(id) {
-        const filteredTravel = travel.filter((el) => el.id !== id)
-
-        setTravel(filteredTravel)
-
-    }
 
 
 
