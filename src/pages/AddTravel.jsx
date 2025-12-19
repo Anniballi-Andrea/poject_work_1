@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useGlobalProvider } from "../context/GlobalContext"
+import { Alert } from "bootstrap";
 
 export default function AddTravel() {
 
     const { travel, setTravel } = useGlobalProvider()
+    const [alert, setAlert] = useState(false)
 
 
     const [addDestination, setAddDestination] = useState({
@@ -23,7 +25,10 @@ export default function AddTravel() {
                 name === "destinazione"
                     ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
                     : value
-        }));
+        }))
+
+        setAlert(false)
+
     }
 
 
@@ -32,6 +37,15 @@ export default function AddTravel() {
         // console.log(addDestination);
         setTravel([...travel, addDestination])
 
+        setAlert(true)
+
+        setAddDestination({
+            id: travel.length + 1,
+            destinazione: "",
+            dataPartenza: "",
+            dataRitorno: ""
+        })
+
     }
 
 
@@ -39,6 +53,11 @@ export default function AddTravel() {
     //è una pagina placeholder
     return (
         <>
+            {
+                alert && <div class="alert alert-success" role="alert">
+                    viaggio aggiunto con successo!
+                </div>
+            }
 
 
             <section className="mt-5">
@@ -53,11 +72,11 @@ export default function AddTravel() {
                                     type="text"
                                     name="destinazione"
                                     id="destinazione"
-                                    className="form-control"
+                                    className="form-control "
                                     value={addDestination.destinazione}
                                     onChange={handleChange}
-
                                     placeholder="Inserisci la destinazione..."
+                                    required
                                 />
 
                             </div>
@@ -71,6 +90,7 @@ export default function AddTravel() {
                                     className="form-control"
                                     value={addDestination.dataPartenza}
                                     onChange={handleChange}
+                                    required
 
                                 />
 
@@ -85,6 +105,7 @@ export default function AddTravel() {
                                     className="form-control"
                                     value={addDestination.dataRitorno}
                                     onChange={handleChange}
+                                    required
 
                                 />
 
@@ -92,7 +113,8 @@ export default function AddTravel() {
                             <div >
                                 <button className="btn btn-primary" type="submit">
                                     Conferma
-                                </button></div>
+                                </button>
+                            </div>
 
                         </div>
                     </div>

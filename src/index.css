@@ -5,6 +5,7 @@
 
 
 
+
 .container {
     border: 1px solid lightgray;
 }
@@ -22,4 +23,39 @@
 .search:focus {
     outline: none;
     box-shadow: 0px 0px 0px 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.bi-airplane-engines-fill::before {
+    transform: rotate(45deg);
+    font-size: 1.7rem;
+
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .btn_sm {
+        display: none;
+
+    }
+
+    .sm_margin {
+        margin-bottom: 1rem;
+
+    }
+
+    .sm_border {
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        padding: 1rem 0;
+    }
+
+
+}
+
+@media screen and (max-width: 414px) {
+    .sm_text {
+        font-size: 0.7rem;
+    }
+
 }

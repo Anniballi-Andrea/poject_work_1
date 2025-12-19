@@ -16,15 +16,16 @@ export default function TravelsList() {
 
         travel.map(el => (
             <tr key={el.id}>
-                <td className=" text-start">{el.destinazione}</td>
-                <td>{el.dataPartenza}</td>
-                <td>{el.dataRitorno}</td>
+                <td className=" text-start ">{el.destinazione}</td>
+                <td className="sm_text">{el.dataPartenza}</td>
+                <td className="sm_text">{el.dataRitorno}</td>
                 <td >
                     <Link to={`/detail/${el.id}`} className="btn btn-primary btn-sm"><i className="bi bi-people-fill"></i></Link>
-                    <button className="btn btn-danger btn-sm ms-3" onClick={() => removeTravel(el.id)}><i className="bi bi-trash-fill"></i></button>
+                    <button className="btn btn-danger btn-sm ms-3 btn_sm" onClick={() => removeTravel(el.id)}><i className="bi bi-trash-fill"></i></button>
+
                 </td>
             </tr>
 
         ))
     )
-}
+} //

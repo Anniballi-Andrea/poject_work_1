@@ -6,6 +6,7 @@ export default function AddTraveler() {
     const { travelers, setTravelers } = useGlobalProvider()
     const { id } = useParams()
 
+    const [alert, setAlert] = useState(false)
 
     // State oggetto per i valori del form
     const [addTraveler, setAddTraveler] = useState({
@@ -16,6 +17,7 @@ export default function AddTraveler() {
         codiceFiscale: "",
         telefono: "",
         email: ""
+
     });
 
     // Funzione generica per aggiornare i campi del form
@@ -29,6 +31,8 @@ export default function AddTraveler() {
                     : value
 
         }));
+
+        setAlert(false)
     }
 
     // Submit del form
@@ -36,9 +40,6 @@ export default function AddTraveler() {
         e.preventDefault();
 
         setTravelers([...travelers, addTraveler])
-
-
-
 
         // Reset del form
         setAddTraveler({
@@ -49,13 +50,21 @@ export default function AddTraveler() {
             codiceFiscale: "",
             telefono: "",
             email: ""
-        });
+        })
+
+        setAlert(true)
+
     }
 
     // useEffect(() => console.log(travelers), [travelers])
 
     return (
         <>
+            {
+                alert && <div class="alert alert-success" role="alert">
+                    viaggiatore aggiunto con successo!
+                </div>
+            }
             <div className="container my-4 pb-3 bg-light">
                 <h4 className=" pt-3 pb-4">Aggiungi i dati del viaggiatore:</h4>
 
@@ -69,6 +78,7 @@ export default function AddTraveler() {
                             onChange={handleChange}
                             className="form-control"
                             placeholder="Inserisci nome..."
+                            required
                         />
                     </div>
                     <div className="mb-3">
@@ -80,6 +90,7 @@ export default function AddTraveler() {
                             onChange={handleChange}
                             className="form-control"
                             placeholder="Inserisci cognome..."
+                            required
                         />
                     </div>
 
@@ -92,6 +103,7 @@ export default function AddTraveler() {
                             onChange={handleChange}
                             className="form-control"
                             placeholder="Inserisci Codice Fiscale..."
+                            required
                         />
                     </div>
 
@@ -104,6 +116,7 @@ export default function AddTraveler() {
                             onChange={handleChange}
                             className="form-control"
                             placeholder="Inserisci numero di telefono..."
+                            required
                         />
                     </div>
 
@@ -116,6 +129,7 @@ export default function AddTraveler() {
                             onChange={handleChange}
                             className="form-control"
                             placeholder="Inserisci email..."
+                            required
                         />
                     </div>
 
@@ -125,7 +139,7 @@ export default function AddTraveler() {
                             Aggiungi Viaggiatore
                         </button>
 
-                        <Link to={`/detail/${id}`} className="btn btn-warning mt-3"><i class="bi bi-arrow-left-square"></i></Link>
+                        <Link to={`/detail/${id}`} className="btn btn-warning mt-3"><i className="bi bi-arrow-left-square"></i></Link>
                     </div >
 
 
