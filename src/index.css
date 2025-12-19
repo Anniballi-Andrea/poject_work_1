@@ -18,3 +18,8 @@
     border-radius: 6px;
     border: 1px solid lightgray;
 }
+
+.search:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 0.2rem rgba(13, 110, 253, 0.25);
+}

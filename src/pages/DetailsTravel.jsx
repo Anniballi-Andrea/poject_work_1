@@ -40,7 +40,7 @@ export default function DetailTravel() {
                         aria-label="Search"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)} />
-                    <Link to={`/detail/${id}/addTraveler`} className="btn btn-primary"><i class="bi bi-person-fill-add"></i></Link>
+                    <Link to={`/detail/${id}/addTraveler`} className="btn btn-primary"><i className="bi bi-person-fill-add"></i></Link>
 
                 </div>
                 {

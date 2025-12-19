@@ -52,7 +52,7 @@ export default function AddTraveler() {
         });
     }
 
-    useEffect(() => console.log(travelers), [travelers])
+    // useEffect(() => console.log(travelers), [travelers])
 
     return (
         <>
@@ -120,18 +120,19 @@ export default function AddTraveler() {
                     </div>
 
 
-                    <button type="submit" className="btn btn-primary">
-                        Aggiungi Viaggiatore
-                    </button>
+                    <div className="d-flex align-items-end justify-content-between">
+                        <button type="submit" className="btn btn-primary">
+                            Aggiungi Viaggiatore
+                        </button>
+
+                        <Link to={`/detail/${id}`} className="btn btn-warning mt-3"><i class="bi bi-arrow-left-square"></i></Link>
+                    </div >
 
 
-                </form>
+                </form >
 
-            </div>
-            <div className="d-flex justify-content-center align-items-center">
-                <Link to={`/detail/${id}`} className="btn btn-warning mt-3"><i class="bi bi-arrow-left-square"></i></Link>
+            </div >
 
-            </div>
         </>
     );
 }
